@@ -11,6 +11,42 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin', 'namespace' => 'Admin'],function() {
+
+    Route::get('/', function () {
+        return redirect()->route('admin.home');
+    });
+
+    Route::get('/home', [
+        'uses' => 'HomeController@home',
+        'as' => 'home'
+    ]);
+
+    Route::get('/statistics', [
+        'uses' => 'HomeController@statistics',
+        'as' => 'statistics'
+    ]);
+});
+
+
+Route::group([ 'namespace' => 'Web'],function() {
+
+    Route::get('/', [
+        'uses' => 'HomeController@index',
+        'as' => 'home'
+    ]);
+
+    Route::get('/about', [
+        'uses' => 'HomeController@getAbout',
+        'as' => 'about'
+    ]);
+
+    Route::get( '/categories/{categoryId}', [
+        'uses' => 'CategoryController@categoryPosts',
+        'as'   => 'category-posts'
+    ] );
+
 });
