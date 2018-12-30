@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
+        "laravelcollective/html": "^5.4.0",
         "vinkla/hashids": "^5.1"
     },
     "require-dev": {
@@ -34,6 +35,9 @@
         }
     },
     "autoload": {
+        "files": [
+            "app/Library/functions.php"
+        ],
         "psr-4": {
             "App\\": "app/"
         },

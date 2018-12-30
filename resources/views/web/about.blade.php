@@ -17,11 +17,8 @@
 
         <div class="row">
             <div class="col-full s-content__main">
-
                 <h2>How it works</h2>
-
                 <hr>
-
                 <div class="row block-1-2 block-tab-full">
                     <div class="col-block">
                         <h4 class="quarter-top-margin">You place your order</h4>

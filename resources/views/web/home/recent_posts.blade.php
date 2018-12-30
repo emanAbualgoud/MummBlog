@@ -5,28 +5,31 @@
 
             @foreach($posts as $post)
                 <article class="col-block">
-
                     <div class="item-entry" data-aos="zoom-in">
                         <div class="item-entry__thumb">
-                            <a href="single-standard.html" class="item-entry__thumb-link">
-                                <img src="images/thumbs/post/lamp-400.jpg"
-                                     srcset="images/thumbs/post/lamp-400.jpg 1x, images/thumbs/post/lamp-800.jpg 2x" alt="">
+                            <a href="{{ route('posts.show', Hashids::encode($post->id)) }}" class="item-entry__thumb-link">
+                                <img src="{{ URL::asset('public/uploads/posts/'.$post->image) }}" alt="{{ $post->title }}">
                             </a>
                         </div>
-
                         <div class="item-entry__text">
                             <div class="item-entry__cat">
-                                <a href="category.html">Design</a>
+                                <a href="{{ route('category-posts', Hashids::encode($post->category->id)) }}"> {{ $post->category->name }} </a>
                             </div>
-
-                            <h1 class="item-entry__title"><a href="single-standard.html">3 Benefits of Minimalism In Interior Design.</a></h1>
-
+                            <h1 class="item-entry__title">
+                                <a href="{{ route('posts.show', Hashids::encode($post->id)) }}">
+                                    {{ $post->title }}
+                                </a>
+                            </h1>
                             <div class="item-entry__date">
-                                <a href="single-standard.html">June 15, 2018</a>
+                                <a href="{{ route('posts.show', Hashids::encode($post->id)) }}">
+                                    {{ str_limit($post->description, 30) }}
+                                </a>
+                                {{--<a href="{{ route('posts.show', Hashids::encode($post->id)) }}">--}}
+                                    {{--{{ date('jS F Y', strtotime($post->created_at)) }}--}}
+                                {{--</a>--}}
                             </div>
                         </div>
                     </div> <!-- item-entry -->
-
                 </article> <!-- end article -->
             @endforeach
 
@@ -36,20 +39,7 @@
     <div class="row pagination-wrap">
         <div class="col-full">
             <nav class="pgn" data-aos="fade-up">
-
                 {{ $posts->links() }}
-
-                {{--<ul>--}}
-                    {{--<li><a class="pgn__prev" href="#0">Prev</a></li>--}}
-                    {{--<li><a class="pgn__num" href="#0">1</a></li>--}}
-                    {{--<li><span class="pgn__num current">2</span></li>--}}
-                    {{--<li><a class="pgn__num" href="#0">3</a></li>--}}
-                    {{--<li><a class="pgn__num" href="#0">4</a></li>--}}
-                    {{--<li><a class="pgn__num" href="#0">5</a></li>--}}
-                    {{--<li><span class="pgn__num dots">…</span></li>--}}
-                    {{--<li><a class="pgn__num" href="#0">8</a></li>--}}
-                    {{--<li><a class="pgn__next" href="#0">Next</a></li>--}}
-                {{--</ul>--}}
             </nav>
         </div>
     </div>

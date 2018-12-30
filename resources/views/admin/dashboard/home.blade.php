@@ -6,23 +6,33 @@
 
 @section('content')
 
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">
+                    Dashboard
+                </h3>
+            </div>
+        </div>
+    </div>
+
     <div class="m-content">
         <div class="row">
             <div class="col-xl-12">
                 <!--begin:: Widgets/Activity-->
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force">
+                <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light" style="background-color: #f2f3f8;">
                     <div class="m-portlet__head">
                         <div class="m-portlet__head-caption">
                             <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text m--font-light">
-                                    Activity
-                                </h3>
+                                {{--<h3 class="m-portlet__head-text m--font-light">--}}
+                                    {{--Activity--}}
+                                {{--</h3>--}}
                             </div>
                         </div>
                     </div>
-                    <div class="m-portlet__body m--bg-danger">
+                    <div class="m-portlet__body">
                         <div class="m-widget17">
-                            <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides m--bg-danger">
+                            <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides">
                                 <div class="m-widget17__chart">
                                 </div>
                             </div>
@@ -36,7 +46,7 @@
                                             Categories
                                         </span>
                                         <span class="m-widget17__desc">
-                                            15 New Items
+                                            {{ $categoriesCount }} Items
                                         </span>
                                     </div>
                                     <div class="m-widget17__item">
@@ -47,7 +57,7 @@
                                             Posts
                                         </span>
                                         <span class="m-widget17__desc">
-                                            72 New Items
+                                            {{ $postsCount }} Items
                                         </span>
                                     </div>
                                 </div>

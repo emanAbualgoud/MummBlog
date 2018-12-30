@@ -9,6 +9,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Dashboard | @yield('title')</title>
+        <meta name="X-CSRF-TOKEN" content="{{ csrf_token() }}">
         <meta name="description" content="Latest updates and statistic charts">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +25,7 @@
         </script>
         <link rel="stylesheet" href="{{ URL::asset('public/admin/css/vendors.bundle.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('public/admin/css/style.bundle.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('public/admin/css/style.css') }}">
 
         <link rel="shortcut icon" href="{{ URL::asset('public/web/images/favicon.ico') }}" />
 
@@ -76,7 +78,6 @@
 
         <script src="{{ URL::asset('public/admin/js/vendors.bundle.js') }}" type="text/javascript"></script>
         <script src="{{ URL::asset('public/admin/js/scripts.bundle.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::asset('public/admin/js/dashboard.js') }}" type="text/javascript"></script>
 
         @yield('scripts')
 

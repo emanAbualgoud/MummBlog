@@ -24,11 +24,23 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin', 'n
         'uses' => 'HomeController@home',
         'as' => 'home'
     ]);
-
     Route::get('/statistics', [
         'uses' => 'HomeController@statistics',
         'as' => 'statistics'
     ]);
+
+    Route::post( '/categories/destroy', [
+        'uses' => 'CategoryController@destroy',
+        'as'   => 'categories.destroy'
+    ] );
+    Route::post( '/posts/destroy', [
+        'uses' => 'PostController@destroy',
+        'as'   => 'posts.destroy'
+    ] );
+
+    Route::resource('categories', 'CategoryController', ['except' =>  'destroy']);
+    Route::resource('posts', 'PostController', ['except' => 'destroy']);
+
 });
 
 
@@ -45,8 +57,12 @@ Route::group([ 'namespace' => 'Web'],function() {
     ]);
 
     Route::get( '/categories/{categoryId}', [
-        'uses' => 'CategoryController@categoryPosts',
+        'uses' => 'HomeController@categoryPosts',
         'as'   => 'category-posts'
     ] );
 
+    Route::get('/posts/{postId}', [
+        'uses' => 'HomeController@showPost',
+        'as' => 'posts.show'
+    ]);
 });

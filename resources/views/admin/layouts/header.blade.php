@@ -46,10 +46,10 @@
                             <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
                                     <span class="m-topbar__userpic">
-                                        <img src="{{ URL::asset('public/admin/img/user4.jpg') }}" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+                                        <img src="{{ URL::asset('public/admin/img/admin.png') }}" class="m--img-rounded m--marginless m--img-centered" alt=""/>
                                     </span>
                                     <span class="m-topbar__username m--hide">
-                                        Nick
+                                        {{ auth()->user()->name }}
                                     </span>
                                 </a>
                                 <div class="m-dropdown__wrapper">
@@ -58,14 +58,14 @@
                                         <div class="m-dropdown__header m--align-center" style="background: url('{{ URL::asset('public/admin/img/user_profile_bg.jpg') }}'); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
-                                                    <img src="{{ URL::asset('public/admin/img/user4.jpg') }}" class="m--img-rounded m--marginless" alt=""/>
+                                                    <img src="{{ URL::asset('public/admin/img/admin.png') }}" class="m--img-rounded m--marginless" alt=""/>
                                                 </div>
                                                 <div class="m-card-user__details">
-																<span class="m-card-user__name m--font-weight-500">
-																	Mark Andre
-																</span>
+                                                    <span class="m-card-user__name m--font-weight-500">
+                                                        {{ auth()->user()->name }}
+                                                    </span>
                                                     <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                        mark.andre@gmail.com
+                                                        {{ auth()->user()->email }}
                                                     </a>
                                                 </div>
                                             </div>
@@ -78,18 +78,18 @@
                                                             Section
                                                         </span>
                                                     </li>
-                                                    <li class="m-nav__item" style="margin-bottom: 20px">
-                                                        <a href="header/profile.html" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-profile-1"></i>
-                                                            <span class="m-nav__link-title">
-                                                                <span class="m-nav__link-wrap">
-                                                                    <span class="m-nav__link-text">
-                                                                        My Profile
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
+                                                    {{--<li class="m-nav__item" style="margin-bottom: 20px">--}}
+                                                        {{--<a href="header/profile.html" class="m-nav__link">--}}
+                                                            {{--<i class="m-nav__link-icon flaticon-profile-1"></i>--}}
+                                                            {{--<span class="m-nav__link-title">--}}
+                                                                {{--<span class="m-nav__link-wrap">--}}
+                                                                    {{--<span class="m-nav__link-text">--}}
+                                                                        {{--My Profile--}}
+                                                                    {{--</span>--}}
+                                                                {{--</span>--}}
+                                                            {{--</span>--}}
+                                                        {{--</a>--}}
+                                                    {{--</li>--}}
                                                     <li class="m-nav__item">
                                                         <a onclick="document.getElementById('logout_form').submit()" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
                                                             Logout
